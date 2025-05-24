@@ -32,7 +32,7 @@ router.post('/register',
       const payload = { userId: user.id };
       const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
 
-      res.ok.json({ msg:"Your Acount created"});
+      res.status(201).json({ msg: "Your Account created" });
     } catch (err) {
       console.error(err.message);
       res.status(500).send('Server error');
